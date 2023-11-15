@@ -1,0 +1,29 @@
+
+dnf install ansible -y
+vim /etc/ansible/hosts
+[feiteng]
+192.168.27.9
+192.168.27.8
+192.168.27.7
+192.168.27.6
+192.168.27.5
+192.168.27.4
+192.168.27.3
+[feiteng:vars]
+ansible_ssh_user='root'
+ansible_ssh_pass='Admin@9000'
+ansible_ssh_port='22'
+
+ansible baode -m shell -a 'yum install -y fio libaio-devel'
+ansible baode -m shell -a 'mkdir /data/demo1;mkdir /data/result'
+ansible baode -m shell -a 'bash /root/fiotest.sh'
+
+ansible baode -m archive -a 'path=/data/result dest=/tmp/result.tar format=tar'
+ansible baode -m fetch -a 'src=/tmp/result.tar dest=/tmp/fio_result/'
+ansible baode -m fetch -a 'src=/tmp/iperf_result.txt dest=/tmp/iperf_result/'
+
+
+安装kvm
+yum install qemu-kvm -y
+ yum install virt-install.noarch virt-manager libvirt -y
+ systemctl start libvirtd.service
