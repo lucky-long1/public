@@ -1,0 +1,5 @@
+[liberty7]
+name=SUSE Liberty Linux 7
+baseurl=ftp://192.168.4.246/pub/os/liberty/liberty7/
+enabled=1
+gpgcheck=1
