@@ -1,0 +1,3 @@
+[submodule "shell-python"]
+	path = shell-python
+	url = git@github.com:lucky-long1/shell-python.git
